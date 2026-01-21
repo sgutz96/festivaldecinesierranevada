@@ -1,5 +1,7 @@
 import { Play, ChevronLeft, ChevronRight } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import LogoJaguar from "../assets/logo cine jaguar25.png";
+
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { useCallback } from 'react';
@@ -14,111 +16,224 @@ interface Movie {
 }
 
 export function MoviesSection() {
-  const ethnicMovies: Movie[] = [
+  const ambientalMovies: Movie[] = [
     {
-      title: "Voces Ancestrales",
+      title: "Las voces del rio ",
       director: "María Kogui",
       country: "Colombia",
-      year: 2024,
+      year: 2025,
       duration: "85 min",
-      image: "https://images.unsplash.com/photo-1763733594402-051a9721ff14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmRpZ2Vub3VzJTIwY3VsdHVyZSUyMGZlc3RpdmFsfGVufDF8fHx8MTc2NDU1MTk2OHww&ixlib=rb-4.1.0&q=80&w=1080"
+      image: new URL("../assets/ambiental/las voces del rio.jpeg", import.meta.url).href
     },
     {
-      title: "Guardianes de la Sierra",
+      title: "Respira Amazonas",
       director: "José Arhuaco",
       country: "Colombia",
-      year: 2024,
+      year: 2025,
       duration: "72 min",
-      image: "https://images.unsplash.com/photo-1627328607888-536d01934a2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaWVycmElMjBuZXZhZGElMjBtb3VudGFpbnN8ZW58MXx8fHwxNzY0NTUxOTY4fDA&ixlib=rb-4.1.0&q=80&w=1080"
+      image: new URL("../assets/ambiental/Respira amazanoas.jpeg", import.meta.url).href
     },
     {
-      title: "Tejiendo Memoria",
+      title: "Acuatenientes",
       director: "Ana Wiwa",
       country: "Colombia",
-      year: 2023,
+      year: 2025,
       duration: "90 min",
-      image: "https://images.unsplash.com/photo-1702890764798-eda71e941da1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaWxtJTIwZmVzdGl2YWwlMjBjaW5lbWF8ZW58MXx8fHwxNzY0NTUxOTY5fDA&ixlib=rb-4.1.0&q=80&w=1080"
+      image: new URL("../assets/ambiental/Acuatenientes.png", import.meta.url).href
     },
     {
-      title: "Palabras Sagradas",
-      director: "Pedro Kankuamo",
+      title: "Residuos Orgánicos",
+      director: "Ana Wiwa",
       country: "Colombia",
-      year: 2024,
-      duration: "68 min",
-      image: "https://images.unsplash.com/photo-1659431245554-e66588fbd196?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuYXR1cmUlMjBmb3Jlc3QlMjB0cm9waWNhbHxlbnwxfHx8fDE3NjQ1NTE5Njl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+      year: 2025,
+      duration: "90 min",
+      image: new URL("../assets/ambiental/Residuos Orgánicos.png", import.meta.url).href
     }
   ];
 
-  const environmentalMovies: Movie[] = [
-    {
-      title: "Río de Vida",
-      director: "Carlos Mendoza",
-      country: "Colombia",
-      year: 2024,
-      duration: "95 min",
-      image: "https://images.unsplash.com/photo-1659431245554-e66588fbd196?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuYXR1cmUlMjBmb3Jlc3QlMjB0cm9waWNhbHxlbnwxfHx8fDE3NjQ1NTE5Njl8MA&ixlib=rb-4.1.0&q=80&w=1080"
-    },
-    {
-      title: "Corazón de la Selva",
-      director: "Laura Ramírez",
-      country: "Colombia",
-      year: 2023,
-      duration: "88 min",
-      image: "https://images.unsplash.com/photo-1728557349552-c1660fbdff7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYWd1YXIlMjB3aWxkbGlmZXxlbnwxfHx8fDE3NjQ1MDgwNzl8MA&ixlib=rb-4.1.0&q=80&w=1080"
-    },
-    {
-      title: "El Último Bosque",
-      director: "Diana Torres",
-      country: "Colombia",
-      year: 2024,
-      duration: "102 min",
-      image: "https://images.unsplash.com/photo-1627328607888-536d01934a2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaWVycmElMjBuZXZhZGElMjBtb3VudGFpbnN8ZW58MXx8fHwxNzY0NTUxOTY4fDA&ixlib=rb-4.1.0&q=80&w=1080"
-    },
-    {
-      title: "Agua Sagrada",
-      director: "Miguel Ángel Pérez",
-      country: "Colombia",
-      year: 2024,
-      duration: "75 min",
-      image: "https://images.unsplash.com/photo-1763733594402-051a9721ff14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmRpZ2Vub3VzJTIwY3VsdHVyZSUyMGZlc3RpdmFsfGVufDF8fHx8MTc2NDU1MTk2OHww&ixlib=rb-4.1.0&q=80&w=1080"
-    }
-  ];
+  const EtnicoMovies: Movie[] = [
+  {
+    title: "Kunsamu Zaku, capítulo 4: Tumas",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Etnico/tumas.png", import.meta.url).href
+  },
+  {
+    title: "Kunsamu Zaku, capítulo 2: El Huso",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Etnico/el-huso.png", import.meta.url).href
+  },
+  {
+    title: "Kunsamu Zaku, capítulo 1: La Sangre",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Etnico/la-sangre.png", import.meta.url).href
+  },
+  {
+    title: "Kunsamu Zaku, capítulo 4: El Algodón",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Etnico/el-algodon.png", import.meta.url).href
+  },
+  {
+    title: "Aquel 4 de noviembre",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Etnico/aquel-4-de-noviembre.jpeg", import.meta.url).href
+  },
+  {
+    title: "Bimdaso a Má bila mí",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Etnico/bimdaso-ma-bila-mi.jpeg", import.meta.url).href
+  },
+  {
+    title: "El canto del Naguaré",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Etnico/canto-del-naguare.jpg", import.meta.url).href
+  },
+  {
+    title: "Maü: La Voz de Nuestros Ancestros",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Etnico/mau-voz-ancestros.png", import.meta.url).href
+  },
+  {
+    title: "Tejidos",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Etnico/tejidos.png", import.meta.url).href
+  }
+];
 
-  const caribbeanMovies: Movie[] = [
-    {
-      title: "Mareas del Caribe",
-      director: "Roberto Núñez",
-      country: "Colombia",
-      year: 2024,
-      duration: "80 min",
-      image: "https://images.unsplash.com/photo-1754380578509-7a0fbe72ac4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXJpYmJlYW4lMjBiZWFjaCUyMGNvbG9tYmlhfGVufDF8fHx8MTc2NDU1MTk3MHww&ixlib=rb-4.1.0&q=80&w=1080"
-    },
-    {
-      title: "Ritmos de la Costa",
-      director: "Sofía Castro",
-      country: "Colombia",
-      year: 2023,
-      duration: "92 min",
-      image: "https://images.unsplash.com/photo-1702890764798-eda71e941da1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaWxtJTIwZmVzdGl2YWwlMjBjaW5lbWF8ZW58MXx8fHwxNzY0NTUxOTY5fDA&ixlib=rb-4.1.0&q=80&w=1080"
-    },
-    {
-      title: "Historias del Mar",
-      director: "Luis Villanueva",
-      country: "Colombia",
-      year: 2024,
-      duration: "78 min",
-      image: "https://images.unsplash.com/photo-1754380578509-7a0fbe72ac4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXJpYmJlYW4lMjBiZWFjaCUyMGNvbG9tYmlhfGVufDF8fHx8MTc2NDU1MTk3MHww&ixlib=rb-4.1.0&q=80&w=1080"
-    },
-    {
-      title: "Cantos Vallenatos",
-      director: "Andrea Martínez",
-      country: "Colombia",
-      year: 2024,
-      duration: "86 min",
-      image: "https://images.unsplash.com/photo-1763733594402-051a9721ff14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmRpZ2Vub3VzJTIwY3VsdHVyZSUyMGZlc3RpdmFsfGVufDF8fHx8MTc2NDU1MTk2OHww&ixlib=rb-4.1.0&q=80&w=1080"
-    }
-  ];
+  const InfantilMovies: Movie[] = [
+  {
+    title: "Aisha la super estrella: Saluda al sol – Ooomm Mmmooo Yoga para niños",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Infantil/aisha-saluda-al-sol.png", import.meta.url).href
+  },
+  {
+    title: "Flora la armoniosa: Despierta tus sentidos – Ooomm Mmmooo Yoga para niños",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Infantil/flora-despierta-sentidos.png", import.meta.url).href
+  },
+  {
+    title: "Pati y Ani en contacto – Ooomm Mmmooo Yoga para niños",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Infantil/pati-ani-contacto.png", import.meta.url).href
+  },
+  {
+    title: "Willy el verde se desintoxica – Ooomm Mmmooo Yoga para niños",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Infantil/willy-verde-desintoxica.png", import.meta.url).href
+  },
+  {
+    title: "La cumbia del bagre",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Infantil/cumbia-del-bagre.png", import.meta.url).href
+  },
+  {
+    title: "Manatí y Colibrí",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Infantil/manati-colibri.png", import.meta.url).href
+  },
+  {
+    title: "JEWU",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Infantil/jewu.png", import.meta.url).href
+  },
+  {
+    title: "Minca pura sin basura",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Infantil/minca-pura-sin-basura.png", import.meta.url).href
+  },
+  {
+    title: "Minca pura territorio",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Infantil/minca-pura-territorio.png", import.meta.url).href
+  },
+  {
+    title: "Una aventura por el río – Guillermina y Candelario",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Infantil/aventura-por-el-rio.jpg", import.meta.url).href
+  },
+  {
+    title: "Los secretos del manglar – Guillermina y Candelario",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Infantil/secretos-del-manglar.png", import.meta.url).href
+  },
+  {
+    title: "Rinconcita hasta el último rincón",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Infantil/rinconcita.jpeg", import.meta.url).href
+  },
+  {
+    title: "Un viaje al corazón del mundo",
+    director: "",
+    country: "Colombia",
+    year: 2025,
+    duration: "90 min",
+    image: new URL("../assets/Infantil/viaje-corazon-mundo.jpeg", import.meta.url).href
+  }
+];
 
+{/*
   const colombianMovies: Movie[] = [
     {
       title: "Colombia Diversa",
@@ -153,6 +268,7 @@ export function MoviesSection() {
       image: "https://images.unsplash.com/photo-1763733594402-051a9721ff14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmRpZ2Vub3VzJTIwY3VsdHVyZSUyMGZlc3RpdmFsfGVufDF8fHx8MTc2NDU1MTk2OHww&ixlib=rb-4.1.0&q=80&w=1080"
     }
   ];
+*/}
 
   const MovieCarousel = ({ movies }: { movies: Movie[] }) => {
     const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -170,7 +286,7 @@ export function MoviesSection() {
 
     return (
       <div className="relative">
-        <div className="overflow-hidden" ref={emblaRef}>
+        <div className="" ref={emblaRef}>
           <div className="flex gap-4">
             {movies.map((movie, index) => (
               <div key={index} className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] md:flex-[0_0_33.333%] lg:flex-[0_0_25%] px-2">
@@ -204,9 +320,6 @@ export function MoviesSection() {
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <button className="bg-white text-emerald-600 rounded-full p-4 transform scale-0 group-hover:scale-100 transition-transform duration-300">
-            <Play size={24} fill="currentColor" />
-          </button>
         </div>
       </div>
       <div className="p-4">
@@ -233,20 +346,19 @@ export function MoviesSection() {
   );
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <section className="py-24 md:py-32 bg-white">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="text-center mb-20">
           <span className="text-emerald-600 uppercase tracking-wider">Selección Oficial</span>
-          <h2 className="text-4xl md:text-5xl mt-4 mb-6">Películas del Festival</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl mt-4 mb-8">Películas del Festival</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Descubre las películas que forman parte de nuestra programación 2025
           </p>
         </div>
 
-        <CategorySection title="Cine Étnico" movies={ethnicMovies} icon="🎭" />
-        <CategorySection title="Cine Ambiental" movies={environmentalMovies} icon="🌿" />
-        <CategorySection title="Cine Caribe" movies={caribbeanMovies} icon="🌊" />
-        <CategorySection title="Cine Colombiano" movies={colombianMovies} icon="🇨🇴" />
+        <CategorySection title="Cine Ambiental " movies={ambientalMovies} icon="🎭" />
+        <CategorySection title="Cine Etnico" movies={EtnicoMovies} icon="🌿" />
+        <CategorySection title="Cine Infantil " movies={InfantilMovies} icon="🌊" />
       </div>
     </section>
   );

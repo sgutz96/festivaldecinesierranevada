@@ -1,266 +1,133 @@
-import image_d8dcc956a282ec7f045ef02137f5a60f160fe758 from 'figma:asset/d8dcc956a282ec7f045ef02137f5a60f160fe758.png';
-import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { useState } from "react";
+import { Mail, Phone, MapPin, Instagram } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import LogoJaguar from "../assets/logo cine jaguar25.png";
 import { motion } from "framer-motion";
+import image_d8dcc956a282ec7f045ef02137f5a60f160fe758 from "figma:asset/d8dcc956a282ec7f045ef02137f5a60f160fe758.png";
+
+import { QrModal } from "./QrModal";
 
 export function Contact() {
+  const [isQrOpen, setIsQrOpen] = useState(false);
+
   return (
-    <section className="py-20 bg-gradient-to-br from-emerald-900 via-teal-800 to-green-900 text-white bg-[rgba(0,0,0,0)]">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl md:text-5xl mb-6">Contacto</h2>
-            <p className="text-xl text-emerald-100 mb-8">
-              ¿Tienes preguntas sobre el festival? Estamos aquí para ayudarte.
-            </p>
+    <>
+      <section className="py-24 md:py-32 bg-gradient-to-br from-emerald-900 via-teal-800 to-green-900 text-white">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid lg:grid-cols-2 gap-16">
 
-            <div className="space-y-6 mb-12">
-              <motion.div 
-                className="flex items-start gap-4"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                <motion.div 
-                  className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center flex-shrink-0"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <Mail className="text-emerald-300" size={24} />
-                </motion.div>
-                <div>
-                  <div className="mb-1">Email</div>
-                  <div className="text-emerald-200">contacto@fecsine.org</div>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                className="flex items-start gap-4"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <motion.div 
-                  className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center flex-shrink-0"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <Phone className="text-emerald-300" size={24} />
-                </motion.div>
-                <div>
-                  <div className="mb-1">Teléfono</div>
-                  <div className="text-emerald-200">+57 (5) 420 8000</div>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                className="flex items-start gap-4"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <motion.div 
-                  className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center flex-shrink-0"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <MapPin className="text-emerald-300" size={24} />
-                </motion.div>
-                <div>
-                  <div className="mb-1">Dirección</div>
-                  <div className="text-emerald-200">
-                    Santa Marta, Magdalena<br />
-                    Colombia
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Social Media */}
+            {/* INFO */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.6 }}
             >
-              <div className="mb-4">Síguenos en redes sociales</div>
-              <div className="flex gap-4">
-                <motion.a
-                  href="#"
-                  className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                >
-                  <Facebook size={24} />
-                </motion.a>
-                <motion.a
-                  href="#"
-                  className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                >
-                  <Instagram size={24} />
-                </motion.a>
-                <motion.a
-                  href="#"
-                  className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                >
-                  <Twitter size={24} />
-                </motion.a>
-                <motion.a
-                  href="#"
-                  className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                >
-                  <Youtube size={24} />
-                </motion.a>
+              <h2 className="text-4xl md:text-5xl mb-8">Contacto</h2>
+              <p className="text-xl text-emerald-100 mb-10">
+                ¿Tienes preguntas sobre el festival? Estamos aquí para ayudarte.
+              </p>
+
+              <div className="space-y-8 mb-12">
+
+                {/* EMAIL */}
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                    <Mail className="text-emerald-300" />
+                  </div>
+                  <div>
+                    <div>Email</div>
+                    <div className="text-emerald-200">contacto@fecsine.org</div>
+                  </div>
+                </div>
+
+                {/* PHONE */}
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                    <Phone className="text-emerald-300" />
+                  </div>
+                  <div>
+                    <div>Teléfono</div>
+                    <div className="text-emerald-200">+57 (5) 420 8000</div>
+                  </div>
+                </div>
+
+                {/* LOCATION */}
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                    <MapPin className="text-emerald-300" />
+                  </div>
+                  <div>
+                    <div>Dirección</div>
+                    <div className="text-emerald-200">
+                      Santa Marta, Magdalena<br />Colombia
+                    </div>
+                  </div>
+                </div>
               </div>
+
+              {/* SOCIAL */}
+              <div className="mb-8">
+                <div className="mb-4">Síguenos</div>
+                <a
+                  href="https://www.instagram.com/festivaldecinesierranevada/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-white/10 rounded-full inline-flex items-center justify-center hover:bg-white/20 transition"
+                >
+                  <Instagram />
+                </a>
+              </div>
+
+              <img
+                src={LogoJaguar}
+                alt="Logo Cine Jaguar"
+                className="w-48"
+              />
             </motion.div>
-          </motion.div>
 
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-              <h3 className="text-2xl mb-6">Sedes del Festival</h3>
-              <div className="space-y-6">
-                <motion.div 
-                  className="pb-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                >
-                  <div className="flex items-start gap-3 mb-3">
-                    <motion.div 
-                      className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                      animate={{ 
-                        y: [0, -5, 0],
-                      }}
-                      transition={{ 
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                    >
-                      <MapPin className="text-emerald-200" size={24} />
-                    </motion.div>
-                    <div>
-                      <div className="mb-1">Teatro Principal</div>
-                      <div className="text-sm text-emerald-200">Calle 14 # 3-58, Santa Marta</div>
-                    </div>
-                  </div>
-                </motion.div>
+            {/* RIGHT */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="bg-white/10 backdrop-blur rounded-2xl p-8">
+                <h3 className="text-2xl mb-6">Sedes del Festival</h3>
 
-                {/* Map Image */}
-                <motion.div 
-                  className="rounded-xl overflow-hidden border-2 border-white/20"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="relative aspect-video">
-                    <ImageWithFallback
-                      src={image_d8dcc956a282ec7f045ef02137f5a60f160fe758}
-                      alt="Mapa de ubicación"
-                      className="w-full h-full object-cover"
-                    />
-                    <motion.div 
-                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                      animate={{ 
-                        y: [0, -10, 0],
-                        scale: [1, 1.1, 1]
-                      }}
-                      transition={{ 
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                    >
-                      <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center shadow-lg">
-                        <MapPin className="text-white" size={28} />
-                      </div>
-                    </motion.div>
-                  </div>
-                </motion.div>
+                <div className="mb-6">
+                  <MapPin className="inline mr-2 text-emerald-200" />
+                  Teatro Principal – Santa Marta
+                </div>
 
-                <motion.div 
-                  className="bg-white/5 rounded-xl p-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                >
-                  <div className="mb-4">Horarios de Atención</div>
-                  <div className="space-y-2 text-sm text-emerald-200">
-                    <div className="flex justify-between">
-                      <span>Lunes a Viernes:</span>
-                      <span>9:00 AM - 6:00 PM</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Durante el Festival:</span>
-                      <span>10:00 AM - 10:00 PM</span>
-                    </div>
-                  </div>
-                </motion.div>
+                <div className="rounded-xl overflow-hidden mb-6">
+                  <ImageWithFallback
+                    src={image_d8dcc956a282ec7f045ef02137f5a60f160fe758}
+                    alt="Mapa"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
 
-                <motion.button 
-                  className="w-full bg-white text-emerald-900 px-8 py-3 rounded-full hover:bg-emerald-50 transition-colors mt-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                {/* BOTÓN QR */}
+                <button
+                  onClick={() => setIsQrOpen(true)}
+                  className="w-full bg-white text-emerald-900 py-3 rounded-full hover:bg-emerald-50 transition"
                 >
                   Quiero ser amigo del festival
-                </motion.button>
+                </button>
               </div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
+            </motion.div>
 
-      {/* Footer */}
-      <motion.div 
-        className="container mx-auto px-4 mt-20 pt-8 border-t border-white/20"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-emerald-200">
-          <div>
-            © 2025 Festival de Cine Sierra Nevada - FECSINE. Todos los derechos reservados.
-          </div>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Política de Privacidad</a>
-            <a href="#" className="hover:text-white transition-colors">Términos y Condiciones</a>
           </div>
         </div>
-      </motion.div>
-    </section>
+      </section>
+
+      {/* MODAL QR */}
+      <QrModal
+        isOpen={isQrOpen}
+        onClose={() => setIsQrOpen(false)}
+      />
+    </>
   );
 }
