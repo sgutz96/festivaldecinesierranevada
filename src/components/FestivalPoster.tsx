@@ -506,7 +506,7 @@ export function FestivalPoster() {
               <ImageWithFallback
                 src = {BannerImg}
                 alt="Festival Poster"
-                className="w-full h-full object-cover opacity-80 grayscale"
+                className="w-full h-full object-cover opacity-50 "
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center bg-[rgba(0,0,0,0.35)] p-[32px]">
 
