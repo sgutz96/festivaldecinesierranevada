@@ -8,7 +8,7 @@ import {
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import Programacion from "../assets/Programacion-Festival-Sierra-Nevada.pdf";
 
-import BannerImg from "figma:asset/d8dcc956a282ec7f045ef02137f5a60f160fe758.png";
+import BannerImg from "../assets/Banner.jpeg";
 
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
