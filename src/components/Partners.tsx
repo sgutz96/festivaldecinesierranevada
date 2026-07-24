@@ -184,7 +184,7 @@ const partners = [
       {
         name: "Sacra",
         logo: new URL(
-          "../assets/logos 2025/4_Nivelespeciales/sacra .png",
+          "../assets/logos 2025/4_Nivelespeciales/sacra.png",
           import.meta.url
         ).href
       },

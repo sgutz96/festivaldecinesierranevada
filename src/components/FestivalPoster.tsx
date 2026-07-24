@@ -7,7 +7,6 @@ import {
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import Programacion from "../assets/Programacion-Festival-Sierra-Nevada.pdf";
-
 import BannerImg from "../assets/Banner.jpeg";
 
 import useEmblaCarousel from "embla-carousel-react";
@@ -504,10 +503,10 @@ export function FestivalPoster() {
           <div className="relative group rounded-2xl overflow-hidden">
             <div className="aspect-[3/4] bg-black shadow-2xl ">
               <ImageWithFallback
-                src = {BannerImg}
-                alt="Festival Poster"
-                className="w-full h-full object-cover opacity-50 "
-              />
+  src={BannerImg}
+  alt="Festival Poster"
+  className="w-full h-full object-cover opacity-50"
+/>
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center bg-[rgba(0,0,0,0.35)] p-[32px]">
 
                 <h3 className="text-3xl md:text-4xl mb-4 text-[rgb(255,255,255)]">
