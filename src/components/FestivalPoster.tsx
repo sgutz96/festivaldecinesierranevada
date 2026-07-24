@@ -8,6 +8,8 @@ import {
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import Programacion from "../assets/Programacion-Festival-Sierra-Nevada.pdf";
 
+import BannerImg from "../assets/Banner.jpeg";
+
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback, useMemo, useState } from "react";
@@ -502,7 +504,7 @@ export function FestivalPoster() {
           <div className="relative group rounded-2xl overflow-hidden">
             <div className="aspect-[3/4] bg-black shadow-2xl ">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1763733594402-051a9721ff14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmRpZ2Vub3VzJTIwY3VsdHVyZSUyMGZlc3RpdmFsfGVufDF8fHx8MTc2NDU1MTk2OHww&ixlib=rb-4.1.0&q=80&w=1080"
+                src = {BannerImg}
                 alt="Festival Poster"
                 className="w-full h-full object-cover opacity-80 grayscale"
               />
